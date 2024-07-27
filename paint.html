@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Painting Application</title>
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="paint.css">
+</head>
+<body>
+    <div class="container">
+        <div class="f">
+            <button style="background-color: blue; color: white;">File</button>
+            <button>Home</button>
+            <button>View</button> 
+        </div>
+        <div class="opt">
+            <div class="a">
+                <div class="clipboard">
+                    <div class="paste">
+                        <button><i class="fas fa-paste"></i></button> Paste
+                    </div>
+                    <div class="cc">
+                        <button><i class="fas fa-cut"></i></button> Cut<br>
+                        <button><i class="fas fa-copy"></i></button> Copy
+                    </div>
+                </div>
+                <div class="text">
+                    <h3 class="text">Clipboard</h3>
+                </div>
+            </div>
+            <div class="b">
+                <div class="im">
+                    <div class="select">
+                        <button><i class="fas fa-mouse-pointer"></i></button> Select<br>
+                        <button><i class="fas fa-crop"></i></button> Crop
+                    </div>
+                    <div class="tools">
+                        <button><i class="fas fa-expand-arrows-alt"></i></button> Resize<br>
+                        <button><i class="fas fa-sync-alt"></i></button> Rotate
+                    </div>
+                </div>
+                <div class="text">
+                    <h3 class="text">Image</h3>
+                </div>
+            </div>
+            <div class="c">
+                <div class="tool-icons">
+                    <div class="pba">
+                        <button id="pen"><i class="fas fa-pencil-alt"></i>Pencil</button><br>
+                        <button id="eraser"><i class="fas fa-eraser"></i> Eraser</button>
+                        <button id="undo"><i class="fas fa-undo"></i> Undo</button>
+                    </div>
+                </div>
+                <div class="text">
+                    <h3 class="text">Tools</h3>
+                </div>
+            </div>
+            <div class="brushes">
+                <div class="j">
+                    <button class="dropbtn"><i class="fas fa-brush"></i></button>
+                    <select id="penType">
+                        <option value="round" selected>Brushes</option>
+                        <option value="round">Round</option>
+                        <option value="square">Square</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label for="brushSize">BrushSize:</label><br>
+                    <input type="range" id="brushSize" min="1" max="50" value="5" style="color: white;font-size: 10px;">
+                </div>
+            </div>
+            <div class="colo">
+                <div class="k" style="text-align: center;">
+                     <label for="colorPicker" style="font-size: 20px;">Color:</label>
+                    <input type="color" id="colorPicker" value="#000000">
+                </div>
+                <div class="color-buttons">
+                    <div class="x">
+                        <button style="background-color: #ff0000;" onclick="changeColor('#ff0000')"></button>
+                        <button style="background-color: #00ff00;" onclick="changeColor('#00ff00')"></button>
+                        <button style="background-color: #0000ff;" onclick="changeColor('#0000ff')"></button>
+                        <button style="background-color: #ffff00;" onclick="changeColor('#ffff00')"></button>
+                        <button style="background-color: #800080;" onclick="changeColor('#800080')"></button>
+                        <button style="background-color: #ffa500;" onclick="changeColor('#ffa500')"></button>
+                        <button style="background-color: #00ffff;" onclick="changeColor('#00ffff')"></button>
+                        <button style="background-color: #ff00ff;" onclick="changeColor('#ff00ff')"></button>
+                        <button style="background-color: #800000;" onclick="changeColor('#800000')"></button>
+                        <button style="background-color: #008000;" onclick="changeColor('#008000')"></button>
+                    </div>
+                    <div class="x">
+                        <button style="background-color: #000080;" onclick="changeColor('#000080')"></button>
+                        <button style="background-color: #808000;" onclick="changeColor('#808000')"></button>
+                        <button style="background-color: #008080;" onclick="changeColor('#008080')"></button>
+                        <button style="background-color: #808080;" onclick="changeColor('#808080')"></button>
+                        <button style="background-color: #c0c0c0;" onclick="changeColor('#c0c0c0')"></button>
+                        <button style="background-color: #ffd700;" onclick="changeColor('#ffd700')"></button>
+                        <button style="background-color: #b22222;" onclick="changeColor('#b22222')"></button>
+                        <button style="background-color: #7fffd4;" onclick="changeColor('#7fffd4')"></button>
+                        <button style="background-color: #4682b4;" onclick="changeColor('#4682b4')"></button>
+                        <button style="background-color: #d2691e;" onclick="changeColor('#d2691e')"></button>
+                    </div>
+                    <div class="x">
+                        <!-- Additional color buttons -->
+<button style="background-color: #ff69b4;" onclick="changeColor('#ff69b4')"></button> <!-- Hot Pink -->
+<button style="background-color: #1e90ff;" onclick="changeColor('#1e90ff')"></button> <!-- Dodger Blue -->
+<button style="background-color: #32cd32;" onclick="changeColor('#32cd32')"></button> <!-- Lime Green -->
+<button style="background-color: #8a2be2;" onclick="changeColor('#8a2be2')"></button> <!-- Blue Violet -->
+<button style="background-color: #ff4500;" onclick="changeColor('#ff4500')"></button> <!-- Orange Red -->
+<button style="background-color: #da70d6;" onclick="changeColor('#da70d6')"></button> <!-- Orchid -->
+<button style="background-color: #00ced1;" onclick="changeColor('#00ced1')"></button> <!-- Dark Turquoise -->
+<button style="background-color: #dc143c;" onclick="changeColor('#dc143c')"></button> <!-- Crimson -->
+<button style="background-color: #ffdead;" onclick="changeColor('#ffdead')"></button> <!-- Navajo White -->
+<button style="background-color: #2e8b57;" onclick="changeColor('#2e8b57')"></button> <!-- Sea Green -->
+
+                    </div>
+                    <div class="x">
+                        <!-- Additional shades of white and black -->
+<button style="background-color: #ffffff;" onclick="changeColor('#ffffff')"></button> <!-- White -->
+<button style="background-color: #f0f0f0;" onclick="changeColor('#f0f0f0')"></button> <!-- Very Light Gray -->
+<button style="background-color: #dcdcdc;" onclick="changeColor('#dcdcdc')"></button> <!-- Gainsboro -->
+<button style="background-color: #c0c0c0;" onclick="changeColor('#c0c0c0')"></button> <!-- Silver -->
+<button style="background-color: #a9a9a9;" onclick="changeColor('#a9a9a9')"></button> <!-- Dark Gray -->
+<button style="background-color: #808080;" onclick="changeColor('#808080')"></button> <!-- Gray -->
+<button style="background-color: #696969;" onclick="changeColor('#696969')"></button> <!-- Dim Gray -->
+<button style="background-color: #505050;" onclick="changeColor('#505050')"></button> <!-- Very Dark Gray -->
+<button style="background-color: #2f2f2f;" onclick="changeColor('#2f2f2f')"></button> <!-- Blackish Gray -->
+<button style="background-color: #000000;" onclick="changeColor('#000000')"></button> <!-- Black -->
+
+                    </div>
+                </div>
+            </div>
+            <div class="d">
+                <button id="clearCanvas"><i class="fas fa-trash-alt"></i> Clear</button>
+                <button id="saveCanvas"><i class="fas fa-save"></i> Save</button>
+            </div>
+        </div>
+    <!-- </div> -->
+    <div class="can">
+        <canvas id="drawingCanvas"></canvas>
+    </div>
+    </div>
+    </body>
+    <script src="paint.js"></script>
+</body>
+</html>
